@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xStaticAsTag="clr-namespace:xStaticAsTag"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="xStaticAsTag.MainWindow"
+        x:Name="Window"
+        Title="xStaticAsTag">
+
+    <ListBox ItemsSource="{Binding Values, ElementName=Window}">
+        <Classes.Relevant>
+            <Binding Path="$self.SelectedItem">
+                <Binding.Converter>
+                    <xStaticAsTag:IsAnyOfConverter>
+                        <x:Static Member="xStaticAsTag:ValuesType.B" />
+                        <x:Static Member="xStaticAsTag:ValuesType.D" />
+                    </xStaticAsTag:IsAnyOfConverter>
+                </Binding.Converter>
+            </Binding>
+        </Classes.Relevant>
+        
+        <ListBox.Styles>
+            <Style Selector="ListBox.Relevant">
+                <Setter Property="Background" Value="Red"/>
+            </Style>
+        </ListBox.Styles>
+    </ListBox>
+
+</Window>
