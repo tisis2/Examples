@@ -1,0 +1,102 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RotatedText.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RotatedText.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RotatedText">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid
+        ShowGridLines="True"
+        RowDefinitions="* *"
+        ColumnDefinitions="* *">
+
+
+        <Panel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Aqua">
+
+            <TextBlock Text="{Binding Greeting}">
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="45" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Panel>
+
+
+        <Panel
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Background="Aqua">
+
+            <TextBlock Text="{Binding Greeting}">
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="-45" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Panel>
+
+        <!-- clipping -->
+        <Panel
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Aqua"
+            ClipToBounds="True">
+
+            <TextBlock Text="{Binding Greeting}">
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="-45" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Panel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Orientation="Horizontal"
+            Background="Cyan"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Text="{Binding Greeting}">
+                
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="-90" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <Border
+                BorderBrush="Black"
+                BorderThickness="1">
+                <StackPanel
+                    VerticalAlignment="Stretch">
+
+                    <TextBlock Text="some control" />
+                    <TextBlock Text="a vertical text" />
+                    <TextBlock Text="needed to be set" />
+                    <TextBlock Text="next to its left side" />
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+
+    </Grid>
+
+</Window>
