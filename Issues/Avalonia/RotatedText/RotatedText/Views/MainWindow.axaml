@@ -20,17 +20,18 @@
         RowDefinitions="* *"
         ColumnDefinitions="* *">
 
-
         <Panel
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Background="Aqua">
 
-            <TextBlock Text="{Binding Greeting}">
-                <TextBlock.RenderTransform>
+            <LayoutTransformControl>
+                <LayoutTransformControl.LayoutTransform>
                     <RotateTransform Angle="45" />
-                </TextBlock.RenderTransform>
-            </TextBlock>
+                </LayoutTransformControl.LayoutTransform>
+
+                <TextBlock Text="{Binding Greeting}" />
+            </LayoutTransformControl>
         </Panel>
 
 
@@ -41,11 +42,12 @@
             VerticalAlignment="Bottom"
             Background="Aqua">
 
-            <TextBlock Text="{Binding Greeting}">
-                <TextBlock.RenderTransform>
+            <LayoutTransformControl>
+                <LayoutTransformControl.LayoutTransform>
                     <RotateTransform Angle="-45" />
-                </TextBlock.RenderTransform>
-            </TextBlock>
+                </LayoutTransformControl.LayoutTransform>
+                <TextBlock Text="{Binding Greeting}" />
+            </LayoutTransformControl>
         </Panel>
 
         <!-- clipping -->
@@ -57,11 +59,13 @@
             Background="Aqua"
             ClipToBounds="True">
 
-            <TextBlock Text="{Binding Greeting}">
-                <TextBlock.RenderTransform>
+            <LayoutTransformControl>
+                <LayoutTransformControl.LayoutTransform>
                     <RotateTransform Angle="-45" />
-                </TextBlock.RenderTransform>
-            </TextBlock>
+                </LayoutTransformControl.LayoutTransform>
+
+                <TextBlock Text="{Binding Greeting}" />
+            </LayoutTransformControl>
         </Panel>
 
         <StackPanel
@@ -72,15 +76,13 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center">
 
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Text="{Binding Greeting}">
-                
-                <TextBlock.RenderTransform>
+            <LayoutTransformControl>
+                <LayoutTransformControl.LayoutTransform>
                     <RotateTransform Angle="-90" />
-                </TextBlock.RenderTransform>
-            </TextBlock>
+                </LayoutTransformControl.LayoutTransform>
+
+                <TextBlock Text="{Binding Greeting}" />
+            </LayoutTransformControl>
 
             <Border
                 BorderBrush="Black"
